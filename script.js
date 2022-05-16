@@ -1,5 +1,6 @@
 const txtInput = document.querySelector('.inputs input');
 const checkBtn = document.querySelector('.inputs button');
+const infoTxt = document.querySelector('.info-text');
 let filterInput;
 
 checkBtn.addEventListener("click", ()=>{
@@ -8,10 +9,11 @@ checkBtn.addEventListener("click", ()=>{
     //reverse - we reversed the array
     //join('') - now we want the array elements without being separated with a comma
     //so we have: 12345 -> arr[5]={1,2,3,4,5} -> arr[5]={5,4,3,2,1} -> arr.join('') -> 54321
+    infoTxt.style.display = 'block';
     if(filterInput != reverseInput){
-        return console.log("Not palindrome!");
+        return infoTxt.innerHTML = `No! <span>'${txtInput.value}'</span> isn't a palindrome!`;
     }
-    console.log("Palindrome!");
+    infoTxt.innerHTML = `Yes! <span>'${txtInput.value}'</span> is a palindrome!`
 })
 
 txtInput.addEventListener("keyup",()=>{
@@ -20,5 +22,6 @@ txtInput.addEventListener("keyup",()=>{
     if(filterInput){
         return checkBtn.classList.add('active');
     }
+    infoTxt.style.display='none';
     checkBtn.classList.remove('active');
 })
