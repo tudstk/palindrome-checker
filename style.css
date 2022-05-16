@@ -71,3 +71,8 @@ body{
 .info-text span{
     color:rgb(36, 121, 92);
 }
+
+.inputs button.active{
+    opacity: 1;
+    pointer-events:auto;
+}
